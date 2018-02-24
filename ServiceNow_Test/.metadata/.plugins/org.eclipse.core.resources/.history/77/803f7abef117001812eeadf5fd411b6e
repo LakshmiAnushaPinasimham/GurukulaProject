@@ -1,0 +1,58 @@
+package steps;
+
+import java.util.Map;
+
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
+
+import cucumber.api.DataTable;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import object.Repository.EntitiesBranchRepo;
+import runner.Runner;
+import waits.Waits;
+
+public class StaffSteps 
+{
+	
+	WebDriver driver = Runner.driver;
+	public String name="";
+	public String branch="";
+	
+	
+	@When("^I click on Entities to create Staff$")
+	public void i_click_on_Entities_to_create_Staff() 
+	{
+		driver.findElement(EntitiesBranchRepo.entities).click();
+		
+		//To select staff from Entities
+		Actions action=new Actions(driver);
+		action.sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.ENTER).build().perform();	
+
+	  
+	}
+
+	@When("^I filled the Staff details$")
+	public void i_filled_the_Staff_details(DataTable staffDetails)
+	{
+		for (Map<String, String> data : staffDetails.asMaps(String.class, String.class))
+		{
+			driver.findElement(EntitiesBranchRepo.create_Branch).click();
+			name=data.get("Name");
+			branch=data.get("Code");
+			driver.findElement(EntitiesBranchRepo.name_TextField).sendKeys(data.get("Name"));
+			driver.findElement(EntitiesBranchRepo.code_TextField).sendKeys(data.get("Code"));
+			driver.findElement(EntitiesBranchRepo.save_Button).click();
+			Waits.implicitWait();
+		}
+	}
+
+	@Then("^Staff details should be created sucessfully$")
+	public void staff_details_should_be_created_sucessfully() 
+	{
+	  
+	}
+
+
+}

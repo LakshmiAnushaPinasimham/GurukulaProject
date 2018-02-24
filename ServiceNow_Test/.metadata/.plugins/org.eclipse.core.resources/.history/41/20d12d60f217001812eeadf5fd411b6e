@@ -1,0 +1,13 @@
+Feature: Staff
+  
+  As a Gurkula user, I should be able to create staff details
+
+  Scenario: Create Staff
+    Given I launch the Gurukula Application
+    When I click on Login
+    And I enter the login details "admin" and "admin"
+    When I click on Entities to create Staff
+    When I filled the Staff details
+      | Name   |  | Branch     |
+      | Anusha |  | Maths		   |
+    Then Staff details should be created sucessfully

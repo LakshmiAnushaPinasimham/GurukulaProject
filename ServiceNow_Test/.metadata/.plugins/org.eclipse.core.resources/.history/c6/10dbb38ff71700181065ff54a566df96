@@ -1,0 +1,123 @@
+package steps;
+
+import java.util.List;
+import java.util.Map;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+
+import cucumber.api.DataTable;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import elements.Behaviours.Dropdown;
+import junit.framework.Assert;
+import object.Repository.EntitiesBranchRepo;
+import object.Repository.EntitiesStaffRepo;
+import object.Repository.EntitiesStaffRepo;
+import runner.Runner;
+import waits.Waits;
+
+public class StaffSteps 
+{
+	
+	WebDriver driver = Runner.driver;
+	public String name="";
+	public String branch="";
+	
+	
+	@When("^I click on Entities to create Staff$")
+	public void i_click_on_Entities_to_create_Staff() throws InterruptedException 
+	{
+		Thread.sleep(5000);
+		driver.findElement(EntitiesBranchRepo.entities).click();
+		
+		//To select staff from Entities
+		Actions action=new Actions(driver);
+		action.sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.ENTER).build().perform();	
+
+	  
+	}
+
+	@When("^I filled the Staff details$")
+	public void i_filled_the_Staff_details(DataTable staffDetails)
+	{
+		for (Map<String, String> data : staffDetails.asMaps(String.class, String.class))
+		{
+			driver.findElement(EntitiesStaffRepo.create_Staff).click();
+			name=data.get("Name");
+			branch=data.get("Branch");
+			driver.findElement(EntitiesStaffRepo.name_TextField).sendKeys(data.get("Name"));
+			//driver.findElement(EntitiesStaffRepo.branch_DropDown).sendKeys(data.get("Branch"));
+			Dropdown.SelectByVisibleText(driver.findElement(EntitiesStaffRepo.branch_DropDown), data.get("Branch"));
+			driver.findElement(EntitiesStaffRepo.save_Button).click();
+			Waits.implicitWait();
+		}
+	}
+
+	@Then("^Staff details should be created sucessfully$")
+	public void staff_details_should_be_created_sucessfully() 
+	{
+		      //To get the WebTable data
+		
+		List allRows= driver.findElements(By.xpath("//table[@class='table table-striped']/tbody/tr"));
+		for(int i=1;i<=allRows.size();i++)
+		{
+		   WebElement name_value=driver.findElement(By.xpath("//table[@class='table table-striped']/tbody/tr["+i+"]/td[2]"));
+    	   Assert.assertEquals(name, name_value.getText());	     
+		   WebElement branch_value=driver.findElement(By.xpath("//table[@class='table table-striped']/tbody/tr["+i+"]/td[3]"));
+		   Assert.assertEquals(branch, branch_value.getText());
+		}
+	}
+	
+	@Then("^I should be able to see staff details$")
+	public void i_should_be_able_to_see_staff_details() 
+	{
+		//Handling Web Table of View
+		
+				List allRows= driver.findElements(By.xpath("//table[@class='table table-striped']/tbody/tr"));
+				for(int i=1;i<=allRows.size();i++)
+				{
+				     boolean flag=driver.findElement(By.xpath("//table[@class='table table-striped']/tbody/tr["+i+"]/td[2]")).isDisplayed();
+				     
+				     Assert.assertTrue(flag);
+				}
+				
+				boolean focus=driver.findElement(EntitiesStaffRepo.back_Button).isDisplayed();
+				
+				Assert.assertTrue(focus);
+	}
+	
+	@When("^I click on Edit and enter my new staff details \"([^\"]*)\"$")
+	public void i_click_on_Edit_and_enter_my_new_staff_details(String name)
+	{
+	   WebElement element=driver.findElement(EntitiesStaffRepo.name_TextField);
+	   Waits.explicitWaitElementToBeClickable(element);
+	   element.click();
+	   Actions action = new Actions(driver); 
+	   action.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).perform();
+	   element.sendKeys(name);
+	   driver.findElement(EntitiesStaffRepo.save_Button).click();
+	   Waits.implicitWait();
+	}
+	
+	@Then("^new staff details should be replaced with old$")
+	public void new_staff_details_should_be_replaced_with_old() throws InterruptedException
+	{
+		//WebElement element=driver.findElement(EntitiesRepo.create_Branch);
+		//Waits.explicitWaitElementToBeClickable(element);
+		 Thread.sleep(5000);
+	     WebElement name_value=driver.findElement(By.xpath("//table[@class='table table-striped']/tbody/tr[1]/td[2]"));	     
+	     Assert.assertEquals("Ramesh", name_value.getText());	   
+	}
+
+    @Then("^Staff details should get deleted$")
+    public void staff_details_should_get_deleted() 
+    {
+  
+    }
+}
+
+

@@ -1,0 +1,31 @@
+package runner;
+
+
+import org.junit.runner.RunWith;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeClass;
+
+import cucumber.api.CucumberOptions;
+import cucumber.api.junit.Cucumber;
+import cucumber.api.testng.AbstractTestNGCucumberTests;
+
+//@RunWith(Cucumber.class)
+@CucumberOptions(
+		monochrome = true,
+	features = "src/features"
+	,glue="steps"
+
+	)
+
+
+public class Runner extends AbstractTestNGCucumberTests 
+{
+	@BeforeClass
+	  public void useChromeBrowser() 
+	  {
+		  System.out.println("iam first");
+		  System.setProperty("webdriver.chrome.driver","E:\\Jars\\chromedriver.exe");
+		  
+		  driver=new ChromeDriver();
+	  }
+}

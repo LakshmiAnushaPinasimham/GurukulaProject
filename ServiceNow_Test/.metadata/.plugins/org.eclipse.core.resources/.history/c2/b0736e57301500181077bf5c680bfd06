@@ -1,0 +1,49 @@
+package steps;
+
+import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import object.Repository.AuthenticationRepo;
+import runner.Runner;
+import waits.Waits;
+
+public class AuthenticationSteps
+{
+	WebDriver driver = Runner.driver;
+	WebElement element;
+	
+	@When("^I click on Login$")
+	public void i_click_on_Login() 
+	{
+	   
+	    driver.findElement(AuthenticationRepo.login_Link).click();
+	    element=driver.findElement(AuthenticationRepo.login_TextField);
+		Waits.explicitWait(element);
+	}
+
+	@When("^I enter the login details \"([^\"]*)\" and \"([^\"]*)\"$")
+	public void i_enter_the_login_details_and(String login, String password) 
+	{
+		Thread.sleep(5000);
+		element.sendKeys(login);
+	    driver.findElement(AuthenticationRepo.passwordTextField).sendKeys(password);
+	    driver.findElement(AuthenticationRepo.authenticate_Button).click();
+	}
+
+	@Then("^login should be done sucessfully$")
+	public void login_should_be_done_sucessfully() throws InterruptedException
+	{
+		Thread.sleep(5000);
+	    String success=driver.findElement(AuthenticationRepo.sccuess_Status).getText();
+	         if(!success.contains("Welcome to Gurukula!"))
+			  {
+		       Assert.fail();
+			  }         
+	}
+
+	
+
+}

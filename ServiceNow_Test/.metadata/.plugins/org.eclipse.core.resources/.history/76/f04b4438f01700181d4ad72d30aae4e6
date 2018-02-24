@@ -1,0 +1,34 @@
+package steps;
+
+import cucumber.api.DataTable;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+
+public class StaffSteps 
+{
+	@When("^I click on Entities to create Staff$")
+	public void i_click_on_Entities_to_create_Staff() 
+	{
+	  
+	  
+	}
+
+	@When("^I filled the Staff details$")
+	public void i_filled_the_Staff_details(DataTable arg1)
+	{
+	    // Write code here that turns the phrase above into concrete actions
+	    // For automatic transformation, change DataTable to one of
+	    // List<YourType>, List<List<E>>, List<Map<K,V>> or Map<K,V>.
+	    // E,K,V must be a scalar (String, Integer, Date, enum etc)
+	  
+	}
+
+	@Then("^Staff details should be created sucessfully$")
+	public void staff_details_should_be_created_sucessfully() 
+	{
+	    // Write code here that turns the phrase above into concrete actions
+	  
+	}
+
+
+}

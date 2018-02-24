@@ -1,0 +1,34 @@
+package steps;
+
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+
+public class RegisterSteps
+{
+	@Given("^I launch the Gurukula Application$")
+	public void i_launch_the_Gurukula_Application() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+
+		System.out.println("launching");
+	}
+
+@When("^I click on Registration$")
+public void i_click_on_Registration() throws Throwable {
+    // Write code here that turns the phrase above into concrete actions
+    System.out.println("test1");
+}
+
+@When("^I filled the registration details$")
+public void i_filled_the_registration_details() throws Throwable {
+    // Write code here that turns the phrase above into concrete actions
+	System.out.println("test2");
+}
+
+@Then("^registration should be done successfully$")
+public void registration_should_be_done_successfully() throws Throwable {
+    // Write code here that turns the phrase above into concrete actions
+	System.out.println("test3");
+}
+
+}

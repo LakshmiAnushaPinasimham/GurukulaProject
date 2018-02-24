@@ -1,0 +1,13 @@
+Feature: Create Branch
+  
+  As a Gurkula user, I should be able to create Branch
+
+  Scenario Outline: 
+    Given I launch the Gurukula Application
+    When I click on Login
+    And I enter the login details "admin" and "admin"
+    When I click on Entities to create Branch
+    And I enter the branch details 
+      | Anusha |  | ANUSHA04 |
+      | Ramesh |  | RAMESH24 |
+    Then Branch should be created sucessfully

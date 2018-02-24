@@ -1,0 +1,7 @@
+Feature: new
+
+Scenario: first scenario
+
+Given launch URL
+And enter details
+Then login

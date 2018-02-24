@@ -1,0 +1,12 @@
+package object.Repository;
+
+import org.openqa.selenium.By;
+
+public class EntitiesRepo
+{
+  public static By entities=By.xpath(".//*[contains(@class,'glyphicon glyphicon-th-list')]");
+  public static By create_Branch=By.className("btn btn-primary");
+  public static By name_TextField=By.name("name");
+  public static By code_TextField=By.name("code");
+  public static By save_Button=By.xpath(".//*[contains(@class,'glyphicon glyphicon-save')]");
+}

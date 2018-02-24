@@ -1,0 +1,158 @@
+package steps;
+
+import java.util.List;
+import java.util.Map;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+
+import cucumber.api.DataTable;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import junit.framework.Assert;
+import object.Repository.EntitiesBranchRepo;
+import popup.Windows.Alerts;
+import runner.Runner;
+import waits.Waits;
+
+public class BranchesSteps {
+	WebDriver driver = Runner.driver;
+	public String name = "";
+	public String code = "";
+
+	@When("^I click on Entities to create Branch$")
+	public void i_click_on_Entities_to_create_Branch() {
+		driver.findElement(EntitiesBranchRepo.entities).click();
+
+		// To select Branch from Entities
+		Actions action = new Actions(driver);
+		action.sendKeys(Keys.TAB).sendKeys(Keys.ENTER).build().perform();
+	}
+
+	@When("^I filled the branch details$")
+	public void i_filled_the_branch_details(DataTable branchDetails) throws InterruptedException {
+		for (Map<String, String> data : branchDetails.asMaps(String.class, String.class)) {
+			driver.findElement(EntitiesBranchRepo.create_Branch).click();
+			name = data.get("Name");
+			code = data.get("Code");
+			driver.findElement(EntitiesBranchRepo.name_TextField).sendKeys(data.get("Name"));
+			driver.findElement(EntitiesBranchRepo.code_TextField).sendKeys(data.get("Code"));
+			driver.findElement(EntitiesBranchRepo.save_Button).click();
+			Waits.implicitWait();
+		}
+
+	}
+
+	@Then("^Branch should be created sucessfully$")
+	public void branch_should_be_created_sucessfully() {
+		// To get the WebTable data
+
+		List allRows = driver.findElements(By.xpath("//table[@class='table table-striped']/tbody/tr"));
+		for (int i = 1; i <= allRows.size(); i++) {
+			WebElement name_value = driver
+					.findElement(By.xpath("//table[@class='table table-striped']/tbody/tr[" + i + "]/td[2]"));
+			Assert.assertEquals(name, name_value.getText());
+			WebElement code_value = driver
+					.findElement(By.xpath("//table[@class='table table-striped']/tbody/tr[" + i + "]/td[3]"));
+			Assert.assertEquals(code, code_value.getText());
+		}
+	}
+
+	// Steps of View Branch Details Scenario
+
+	@When("^I click on View$")
+	public void i_click_on_View() {
+
+		WebElement element = driver.findElement(EntitiesBranchRepo.view_Button);
+		Waits.explicitWaitElementToBeClickable(element);
+		element.click();
+
+	}
+
+	@Then("^I should be able to see branch details$")
+	public void i_should_be_able_to_see_branch_details() {
+		// Handling Web Table of View
+
+		List allRows = driver.findElements(By.xpath("//table[@class='table table-striped']/tbody/tr"));
+		for (int i = 1; i <= allRows.size(); i++) {
+			boolean flag = driver
+					.findElement(By.xpath("//table[@class='table table-striped']/tbody/tr[" + i + "]/td[2]"))
+					.isDisplayed();
+
+			Assert.assertTrue(flag);
+		}
+
+		boolean focus = driver.findElement(EntitiesBranchRepo.back_Button).isDisplayed();
+
+		Assert.assertTrue(focus);
+	}
+
+	// Steps of Edit Branch Details Scenario
+
+	@When("^I click on Back$")
+	public void i_click_on_Back() {
+		driver.findElement(EntitiesBranchRepo.back_Button).click();
+		WebElement element = driver.findElement(EntitiesBranchRepo.edit_Button);
+		Waits.explicitWaitElementToBeClickable(element);
+		element.click();
+
+	}
+
+	@When("^I click on Edit and enter my new branch details$")
+	public void i_click_on_Edit_and_enter_my_new_branch_details(DataTable branchDetails) {
+		for (Map<String, String> data : branchDetails.asMaps(String.class, String.class)) {
+			name = data.get("Name");
+			System.out.println("name is"+name);
+			code = data.get("Code");
+			WebElement element = driver.findElement(EntitiesBranchRepo.name_TextField);
+			Waits.explicitWaitElementToBeClickable(element);
+			element.click();
+			Actions action = new Actions(driver);
+			action.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).perform();
+			element.sendKeys(data.get("Name"));
+
+			driver.findElement(EntitiesBranchRepo.code_TextField).click();
+			action.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).perform();
+			driver.findElement(EntitiesBranchRepo.code_TextField).sendKeys(data.get("Code"));
+			driver.findElement(EntitiesBranchRepo.save_Button).click();
+			Waits.fluentWait(driver.findElement(EntitiesBranchRepo.view_Button));
+		}
+	}
+
+	@Then("^new branch details should be replaced with old$")
+	public void new_branch_details_should_be_replaced_with_old() throws InterruptedException {
+		List allRows = driver.findElements(By.xpath("//table[@class='table table-striped']/tbody/tr"));
+		for (int i = 1; i <= allRows.size(); i++) {
+			// WebElement
+			// element=driver.findElement(EntitiesRepo.create_Branch);
+			// Waits.explicitWaitElementToBeClickable(element);
+		
+			WebElement name_value = driver
+					.findElement(By.xpath("//table[@class='table table-striped']/tbody/tr[" + i + "]/td[2]"));
+			System.out.println("/////////"+name_value);
+			Assert.assertEquals(name, name_value.getText());
+			WebElement code_value = driver
+					.findElement(By.xpath("//table[@class='table table-striped']/tbody/tr[" + i + "]/td[3]"));
+			Assert.assertEquals(code, code_value.getText());
+		}
+	}
+
+	// Steps to delete the branch
+
+	@When("^I click on Delete$")
+	public void i_click_on_Delete() throws InterruptedException {
+		driver.findElement(EntitiesBranchRepo.delete_Button).click();
+		WebElement element = driver.findElement(EntitiesBranchRepo.delete_Form);
+		Waits.explicitWaitElementToBeClickable(element);
+	}
+
+	@Then("^Branch should get deleted$")
+	public void branch_should_get_deleted() {
+		WebElement element = driver.findElement(EntitiesBranchRepo.delete_Form);
+		element.findElement(EntitiesBranchRepo.delete_FormButton).click();
+	}
+
+}

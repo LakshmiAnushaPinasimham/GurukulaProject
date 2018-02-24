@@ -1,0 +1,32 @@
+package browsers;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.BeforeClass;
+
+public class Browsers
+{
+	public static WebDriver driver;
+  
+@BeforeClass(alwaysRun=true)
+  public static void useChromeBrowser() 
+  {
+	  System.setProperty("webdriver.chrome.driver","E:\\Jars\\chromedriver.exe");
+	  
+	  driver=new ChromeDriver();
+  }
+  
+  public static void useMozilla()
+  {
+	  driver=new FirefoxDriver();
+	  
+  }
+  
+  @AfterClass(alwaysRun=true)
+  public static void afterClass() 
+  {
+	  driver.quit();
+  }
+
+}

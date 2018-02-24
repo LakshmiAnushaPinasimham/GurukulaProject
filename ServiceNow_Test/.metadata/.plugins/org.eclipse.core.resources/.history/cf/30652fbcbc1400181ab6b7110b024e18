@@ -1,0 +1,26 @@
+package steps;
+
+import org.openqa.selenium.WebDriver;
+
+import cucumber.api.PendingException;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import runner.Runner;
+
+public class UserLogout 
+{
+	WebDriver driver = Runner.driver;
+	
+	@When("^I click on Logout$")
+	public void i_click_on_Logout() 
+	{
+	    
+	   
+	}
+
+	@Then("^logout should be done sucessfully$")
+	public void logout_should_be_done_sucessfully() 
+	{
+	   
+	}
+}

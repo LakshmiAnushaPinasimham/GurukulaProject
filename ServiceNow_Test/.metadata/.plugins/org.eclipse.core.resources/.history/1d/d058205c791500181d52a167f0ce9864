@@ -1,0 +1,16 @@
+package object.Repository;
+
+import org.openqa.selenium.By;
+
+public class AuthenticationRepo
+{
+   //Authentication details
+	public static By login_Link =By.linkText("login");
+	public static By login_TextField=By.id("username");
+	public static By passwordTextField=By.id("password");
+	public static By authenticate_Button=By.xpath(".//*[contains(@class,'btn btn-primary ng-scope')]");	
+	public static By sccuess_Status=By.xpath(".//*[contains(@class,'col-md-8')]");
+	public static By account=By.xpath(".//*[contains(@class,'glyphicon glyphicon-user')]");
+	public static By home=By.xpath(".//*[contains(@class,'glyphicon glyphicon-home')]");
+	public static By logout=By.xpath(".//*[contains(@class,'glyphicon glyphicon-log-out')]");
+}

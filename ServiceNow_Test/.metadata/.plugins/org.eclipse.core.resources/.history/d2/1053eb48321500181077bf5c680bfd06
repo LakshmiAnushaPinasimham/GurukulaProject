@@ -1,0 +1,35 @@
+package steps;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import elements.Behaviours.Dropdown;
+import junit.framework.Assert;
+import object.Repository.AuthenticationRepo;
+import runner.Runner;
+
+public class UserLogout 
+{
+	WebDriver driver = Runner.driver;
+	
+	@When("^I click on Logout$")
+	public void i_click_on_Logout() 
+	{
+		Thread.sleep(5000);
+	   WebElement element= driver.findElement(AuthenticationRepo.account_Dropdown);
+	   element.click();
+	   Dropdown.SelectByVisibleText(element, "Log out");
+	}
+
+	@Then("^logout should be done sucessfully$")
+	public void logout_should_be_done_sucessfully() 
+	{
+	   WebElement element=driver.findElement(AuthenticationRepo.login_Link);
+	   if(!element.isDisplayed())
+	   {
+		   Assert.fail();
+	   }
+	}
+}

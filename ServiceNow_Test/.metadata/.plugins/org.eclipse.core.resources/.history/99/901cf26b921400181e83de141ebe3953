@@ -1,0 +1,74 @@
+package steps;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.WebDriver;
+
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import object.Repository.RegistrationRepo;
+import runner.Runner;
+
+public class RegisterSteps 
+{
+	public static String excelInfo 
+	= System.getProperty("user.dir")+"\\ExcelDataFiles\\RegistrationData.xlsx";
+	
+	public static ArrayList<String> registerData=new ArrayList<String>();
+	WebDriver driver = Runner.driver;
+	 
+
+@Given("^I launch the Gurukula Application$")
+public void i_launch_the_Gurukula_Application() 
+{
+	
+	driver.get("http://127.0.0.1:8080");
+}
+@When("^I click on Registration$")
+public void i_click_on_Registration() 
+{
+	driver.findElement(RegistrationRepo.registerLink).click();
+}
+
+@When("^I filled the registration details$")
+public void i_filled_the_registration_details() throws IOException 
+{
+	  File file=new File(excelInfo);
+	  FileInputStream fis=new FileInputStream(file);
+	  
+	  //Read data from Excel(.xlsx)		 
+	  XSSFWorkbook workbook=new XSSFWorkbook(fis);	  
+	  XSSFSheet sheet=workbook.getSheet("RegistrationData");
+	  XSSFRow rowCount=sheet.getRow(0);
+	  int colCount=rowCount.getLastCellNum();
+	  int recordsCount=sheet.getLastRowNum()- sheet.getFirstRowNum();
+	   
+	  for(int i=1;i<=recordsCount;i++)
+		{
+		  for(int j=0;j<colCount;j++)
+		  {
+			 registerData.add(sheet.getRow(i).getCell(j).getStringCellValue());
+		  }
+		}
+	   	
+	  driver.findElement(RegistrationRepo.login).sendKeys(registerData.get(0));
+	  driver.findElement(RegistrationRepo.email).sendKeys(registerData.get(1));
+	  driver.findElement(RegistrationRepo.newPassword).sendKeys(registerData.get(2));
+	  driver.findElement(RegistrationRepo.newPasswordConfirm).sendKeys(registerData.get(3));
+}
+
+
+@Then("^registration should be done successfully$")
+public void registration_should_be_done_successfully() 
+{
+  
+}
+
+}

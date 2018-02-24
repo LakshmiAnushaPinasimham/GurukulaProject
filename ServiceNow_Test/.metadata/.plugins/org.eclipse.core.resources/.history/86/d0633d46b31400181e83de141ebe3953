@@ -1,0 +1,7 @@
+Feature: Authentication 
+
+As a Gurukula user, I should be able to login sucessfully
+
+Scenario Outline: User Authentication
+
+  

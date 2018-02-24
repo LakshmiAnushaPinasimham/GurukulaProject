@@ -1,0 +1,6 @@
+package object.Repository;
+
+public class EntitiesStaffRepo 
+{
+
+}

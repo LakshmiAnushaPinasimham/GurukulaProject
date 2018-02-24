@@ -1,0 +1,21 @@
+Feature: Create Branch
+  
+  As a Gurkula user, I should be able to create Branch
+
+  Background: 
+    Given I launch the Gurukula Application
+    When I click on Login
+    And I enter the login details "admin" and "admin"
+
+  Scenario: Creating New Branch
+    When I click on Entities to create Branch
+    And I filled the branch details
+      | name   |  | code     |
+      | Anusha |  | ANUSHA04 |
+    Then Branch should be created sucessfully
+    
+  Scenario: View Brabch Details
+  When I click on View 
+  And I enter the branch details
+  Then I should be able to see branch details
+    

@@ -1,0 +1,38 @@
+package steps;
+
+public class CreatePasswordSteps
+{
+	@When("^I click on Entities to Password to change my password$")
+	public void i_click_on_Entities_to_Password_to_change_my_password() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
+	}
+
+	@When("^I enter new paddword details$")
+	public void i_enter_new_paddword_details(DataTable arg1) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    // For automatic transformation, change DataTable to one of
+	    // List<YourType>, List<List<E>>, List<Map<K,V>> or Map<K,V>.
+	    // E,K,V must be a scalar (String, Integer, Date, enum etc)
+	    throw new PendingException();
+	}
+
+	@Then("^new password should be created$")
+	public void new_password_should_be_created() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
+	}
+
+	@When("^I login with new Passowrd$")
+	public void i_login_with_new_Passowrd() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
+	}
+
+	@Then("^I should be able to login successfully$")
+	public void i_should_be_able_to_login_successfully() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
+	}
+
+}

@@ -1,0 +1,8 @@
+Feature: User Registration
+
+Scenario:
+
+Given I launch the Gurukula Application
+When I click on Registration
+And I filled the registration details
+Then registration should be done successfully

@@ -1,0 +1,29 @@
+package steps;
+
+import cucumber.api.DataTable;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+
+public class StaffSteps 
+{
+	@When("^I click on Entities to create Staff$")
+	public void i_click_on_Entities_to_create_Staff() 
+	{
+	  
+	  
+	}
+
+	@When("^I filled the Staff details$")
+	public void i_filled_the_Staff_details(DataTable staff)
+	{
+	  
+	}
+
+	@Then("^Staff details should be created sucessfully$")
+	public void staff_details_should_be_created_sucessfully() 
+	{
+	  
+	}
+
+
+}

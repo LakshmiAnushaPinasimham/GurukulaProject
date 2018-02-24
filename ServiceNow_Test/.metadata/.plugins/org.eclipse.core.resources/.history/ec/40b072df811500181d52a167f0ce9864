@@ -1,0 +1,9 @@
+package object.Repository;
+
+import org.openqa.selenium.By;
+
+public class EntitiesRepo
+{
+  public static By entities=By.xpath(".//*[contains(@class,'hidden-tablet ng-scope')]");
+  
+}

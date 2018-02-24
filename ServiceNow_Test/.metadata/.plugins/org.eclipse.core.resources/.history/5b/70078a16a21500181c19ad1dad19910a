@@ -1,0 +1,18 @@
+package steps;
+
+import cucumber.api.PendingException;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+
+public class ViewBranchSteps 
+{
+	@When("^I click on View$")
+	public void i_click_on_View() throws Throwable {
+	
+	}
+
+	@Then("^I should be able to see branch details$")
+	public void i_should_be_able_to_see_branch_details() throws Throwable {
+	
+	}
+}

@@ -1,0 +1,73 @@
+package steps;
+
+import java.util.List;
+import java.util.Map;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+
+import cucumber.api.DataTable;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import junit.framework.Assert;
+import object.Repository.EntitiesBranchRepo;
+import object.Repository.EntitiesStaffRepo;
+import runner.Runner;
+import waits.Waits;
+
+public class StaffSteps 
+{
+	
+	WebDriver driver = Runner.driver;
+	public String name="";
+	public String branch="";
+	
+	
+	@When("^I click on Entities to create Staff$")
+	public void i_click_on_Entities_to_create_Staff() 
+	{
+		Thread.sleep(5000);
+		driver.findElement(EntitiesBranchRepo.entities).click();
+		
+		//To select staff from Entities
+		Actions action=new Actions(driver);
+		action.sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.ENTER).build().perform();	
+
+	  
+	}
+
+	@When("^I filled the Staff details$")
+	public void i_filled_the_Staff_details(DataTable staffDetails)
+	{
+		for (Map<String, String> data : staffDetails.asMaps(String.class, String.class))
+		{
+			driver.findElement(EntitiesStaffRepo.create_Staff).click();
+			name=data.get("Name");
+			branch=data.get("Branch");
+			driver.findElement(EntitiesStaffRepo.name_TextField).sendKeys(data.get("Name"));
+			driver.findElement(EntitiesStaffRepo.branch_DropDown).sendKeys(data.get("Branch"));
+			driver.findElement(EntitiesStaffRepo.save_Button).click();
+			Waits.implicitWait();
+		}
+	}
+
+	@Then("^Staff details should be created sucessfully$")
+	public void staff_details_should_be_created_sucessfully() 
+	{
+		      //To get the WebTable data
+		
+		List allRows= driver.findElements(By.xpath("//table[@class='table table-striped']/tbody/tr"));
+		for(int i=1;i<=allRows.size();i++)
+		{
+		   WebElement name_value=driver.findElement(By.xpath("//table[@class='table table-striped']/tbody/tr["+i+"]/td[2]"));
+    	   Assert.assertEquals(name, name_value.getText());	     
+		   WebElement branch_value=driver.findElement(By.xpath("//table[@class='table table-striped']/tbody/tr["+i+"]/td[3]"));
+		   Assert.assertEquals(branch, branch_value.getText());
+		}
+	}
+
+
+}

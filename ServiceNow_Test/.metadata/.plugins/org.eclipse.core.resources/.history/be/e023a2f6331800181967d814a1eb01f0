@@ -1,0 +1,16 @@
+Feature: Change Password
+  
+  As a Gurukula user, I should have the feasibility to change my password on request
+
+  Scenario: Change Password
+    Given I launch the Gurukula Application
+    When I click on Login
+    And I enter the login details "admin" and "admin"
+    And I click on Entities to Password to change my password
+    And I enter new paddword details
+      | New Password |  | Condfirm Password |
+      | admins       |  | admins            |
+   Then new password should be created 
+   When I login with new Passowrd
+   Then I should be able to login successfully
+   

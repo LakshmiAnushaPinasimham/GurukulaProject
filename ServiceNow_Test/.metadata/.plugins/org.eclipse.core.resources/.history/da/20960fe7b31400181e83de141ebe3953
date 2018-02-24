@@ -1,0 +1,51 @@
+package steps;
+
+import cucumber.api.PendingException;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+
+public class AuthenticationSteps
+{
+	@When("^I click on Login$")
+	public void i_click_on_Login() 
+	{
+	    
+	    
+	}
+
+	@When("^I enter loginname as \"([^\"]*)\"$")
+	public void i_enter_loginname_as_admin() 
+	{
+	    
+	    
+	}
+
+	@When("^I enter password as admin$")
+	public void i_enter_password_as_admin()  
+	{
+	    
+	    
+	}
+
+	@Then("^login should be done sucessfully$")
+	public void login_should_be_done_sucessfully()
+	{
+	    
+	    
+	}
+
+	@When("^I enter loginname as Test$")
+	public void i_enter_loginname_as_Test() 
+	{
+	    
+	    
+	}
+
+	@When("^I enter password as Test$")
+	public void i_enter_password_as_Test() 
+	{
+	    
+	    
+	}
+
+}

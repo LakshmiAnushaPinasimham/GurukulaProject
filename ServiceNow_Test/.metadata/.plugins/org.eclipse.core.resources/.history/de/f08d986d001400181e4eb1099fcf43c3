@@ -1,0 +1,12 @@
+package objectRepository;
+
+import org.openqa.selenium.By;
+
+public class RegistrationRepo
+{
+
+	public static By registerLink =By.linkText("Register a new account");
+	
+	
+	
+}

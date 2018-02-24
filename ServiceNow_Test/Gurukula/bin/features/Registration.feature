@@ -1,0 +1,11 @@
+@SmokeTest
+
+Feature: User Registration
+
+As a Gurukula user, I should be able to register my details sucessfully
+
+Scenario: User Registration
+    Given I launch the Gurukula Application
+    When I click on Registration
+    And I filled the registration details
+    Then registration should be done successfully

@@ -1,0 +1,43 @@
+package steps;
+
+import cucumber.api.DataTable;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+
+public class CreatePasswordSteps
+{
+	@When("^I click on Entities to Password to change my password$")
+	public void i_click_on_Entities_to_Password_to_change_my_password() 
+	{
+	    
+	   
+	}
+
+	@When("^I enter new paddword details$")
+	public void i_enter_new_paddword_details(DataTable arg1) 
+	{
+	    
+	}
+
+	@Then("^new password should be created$")
+	public void new_password_should_be_created()
+	{
+	    
+	   
+	}
+
+	@When("^I login with new Passowrd$")
+	public void i_login_with_new_Passowrd()
+	{
+	    
+	   
+	}
+
+	@Then("^I should be able to login successfully$")
+	public void i_should_be_able_to_login_successfully()
+	{
+	    
+	   
+	}
+
+}
