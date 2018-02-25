@@ -12,15 +12,18 @@ import waits.Waits;
 
 public class AuthenticationSteps {
 	WebDriver driver = Runner.driver;
+	String value = "";
 
 	@When("^I click on Login$")
 	public void i_click_on_Login() {
+		Waits.implicitWait();
 		driver.findElement(AuthenticationRepo.login_Link).click();
 	}
 
 	@When("^I enter the login details \"([^\"]*)\" and \"([^\"]*)\"$")
 	public void i_enter_the_login_details_and(String login, String password) throws InterruptedException {
 		Waits.implicitWait();
+		value = login;
 		driver.findElement(AuthenticationRepo.login_TextField).sendKeys(login);
 		driver.findElement(AuthenticationRepo.passwordTextField).sendKeys(password);
 		driver.findElement(AuthenticationRepo.authenticate_Button).click();
@@ -29,14 +32,20 @@ public class AuthenticationSteps {
 	@Then("^login should be done sucessfully$")
 	public void login_should_be_done_sucessfully() throws InterruptedException {
 		Waits.implicitWait();
-		String success = driver.findElement(AuthenticationRepo.sccuess_Status).getText();
-		if (!success.contains("You are logged in as user")) {
-			Assert.fail();
+		if (value.equals("admin")) {
+			String success = driver.findElement(AuthenticationRepo.sccuess_Status).getText();
+			if (!success.contains("You are logged in as user")) {
+				Assert.fail();
+			}
+			// Logout of Application
+			UserLogoutSteps.i_click_on_Logout();
+			UserLogoutSteps.logout_should_be_done_sucessfully();
+		} else {
+			String failed = driver.findElement(AuthenticationRepo.failed_Status).getText();
+			System.out.println("failed value is" + failed);
+			if (!failed.contains("Authentication failed!")) {
+				Assert.fail();
+			}
 		}
-
-		// Logout of Application
-		UserLogoutSteps.i_click_on_Logout();
-		UserLogoutSteps.logout_should_be_done_sucessfully();
 	}
-
 }

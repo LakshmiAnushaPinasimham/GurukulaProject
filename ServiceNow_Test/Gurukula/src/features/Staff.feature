@@ -1,9 +1,9 @@
 @RegressionTest
-
 Feature: Staff
   
   As a Gurkula user, I should be able to create staff details
 
+  @CreateStaff
   Scenario: Create Staff
     Given I launch the Gurukula Application
     When I click on Login
@@ -18,15 +18,18 @@ Feature: Staff
       | Anusha |  | Maths  |
     Then Staff details should be created sucessfully
 
+  @ViewStaff
   Scenario: View Staff Details
     When I click on View
     Then I should be able to see staff details
 
+  @EditBranch
   Scenario: Edit Branch Details
     When I click on Back
     And I click on Edit and enter my new staff details "Ramesh"
     Then new staff details should be replaced with old
 
+  @DeleteStaff
   Scenario: Delete Staff
     When I click on Delete
     Then Staff details should get deleted

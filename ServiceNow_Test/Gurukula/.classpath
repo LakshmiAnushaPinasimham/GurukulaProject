@@ -8,7 +8,6 @@
 	<classpathentry kind="lib" path="E:/Jars/testng-6.11.jar"/>
 	<classpathentry kind="lib" path="E:/Jars/cobertura-2.1.1.jar"/>
 	<classpathentry kind="lib" path="E:/Jars/cucumber-core-1.2.5.jar"/>
-	<classpathentry kind="lib" path="E:/Jars/cucumber-java-1.2.5.jar"/>
 	<classpathentry kind="lib" path="E:/Jars/cucumber-junit-1.2.5.jar"/>
 	<classpathentry kind="lib" path="E:/Jars/cucumber-jvm-deps-1.0.6.jar"/>
 	<classpathentry kind="lib" path="E:/Jars/gherkin-2.12.2.jar"/>
@@ -22,5 +21,7 @@
 	<classpathentry kind="lib" path="E:/AnushaSoftwares/poi-3.17/xmlbeans-2.6.2.jar"/>
 	<classpathentry kind="lib" path="E:/Jars/commons-collections4-4.1.jar"/>
 	<classpathentry kind="lib" path="E:/Jars/cucumber-testng-1.2.5.jar"/>
+	<classpathentry kind="lib" path="E:/Jars/cucumber-java-1.2.5.jar"/>
+	<classpathentry kind="lib" path="E:/Jars/cucumber-html-0.2.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -4,6 +4,7 @@ Feature: Authentication
   
   As a Gurukula user, I should be able to login sucessfully
 
+@Authentication
   Scenario Outline: User Authentication
     Given I launch the Gurukula Application
     When I click on Login

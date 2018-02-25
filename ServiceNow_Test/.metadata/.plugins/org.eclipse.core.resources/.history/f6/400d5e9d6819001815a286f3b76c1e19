@@ -1,0 +1,8 @@
+package object.Repository;
+
+import org.openqa.selenium.By;
+
+public class ForGotPasswordRepo {
+	public static By forgotPassword_Link=By.partialLinkText("Did you forget");
+
+}

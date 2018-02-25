@@ -1,0 +1,5 @@
+package object.Repository;
+
+public class ForGotPasswordRepo {
+
+}

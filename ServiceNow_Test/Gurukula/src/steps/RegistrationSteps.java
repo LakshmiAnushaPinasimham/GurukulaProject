@@ -83,6 +83,7 @@ public class RegistrationSteps {
 		if (expectedStatus.contains("Registration failed")) {
 			Assert.fail();
 		}
+		UserLogoutSteps.i_click_on_Logout();
 	}
 
 }

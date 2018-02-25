@@ -13,6 +13,7 @@ import waits.Waits;
 public class UserLogoutSteps {
 	public static final WebDriver driver = Runner.driver;
 	public static AuthenticationSteps authenticationSteps = new AuthenticationSteps();
+	public static WebElement element;
 
 	@Then("^I should be able to login sucessfully$")
 	public void i_should_be_able_to_login_sucessfully() {
@@ -25,14 +26,18 @@ public class UserLogoutSteps {
 
 	@When("^I click on Logout$")
 	public static void i_click_on_Logout() throws InterruptedException {
-		driver.findElement(AuthenticationRepo.account).click();
+	    Thread.sleep(1000);
+		element = driver.findElement(AuthenticationRepo.account);
+		Waits.explicitWaitElementToBeClickable(element);
+		element.click();
+		Waits.implicitWait();
 		driver.findElement(AuthenticationRepo.logout).click();
 
 	}
 
 	@Then("^logout should be done sucessfully$")
-	public static void logout_should_be_done_sucessfully() {
-		Waits.implicitWait();
+	public static void logout_should_be_done_sucessfully() throws InterruptedException {
+
 		WebElement element = driver.findElement(AuthenticationRepo.login_Link);
 		if (!element.isDisplayed()) {
 			Assert.fail();

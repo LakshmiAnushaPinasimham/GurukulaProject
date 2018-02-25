@@ -25,9 +25,6 @@
 <fullyQualifiedTypeName name="object.Repository.EntitiesStaffRepo"/>
 <fullyQualifiedTypeName name="elements.Behaviours.Dropdown"/>
 <fullyQualifiedTypeName name="object.Repository.EntitiesBranchRepo"/>
-<fullyQualifiedTypeName name="waits.Waits"/>
-<fullyQualifiedTypeName name="org.openqa.selenium.By"/>
-<fullyQualifiedTypeName name="object.Repository.AuthenticationRepo"/>
 <fullyQualifiedTypeName name="org.testng.Assert"/>
 <fullyQualifiedTypeName name="object.Repository.PasswordRepo"/>
 <fullyQualifiedTypeName name="org.junit.Assert"/>
@@ -37,6 +34,12 @@
 <fullyQualifiedTypeName name="org.openqa.selenium.support.ui.Wait"/>
 <fullyQualifiedTypeName name="java.util.NoSuchElementException"/>
 <fullyQualifiedTypeName name="java.util.function.Function"/>
-<fullyQualifiedTypeName name="runner.Runner"/>
 <fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.By"/>
+<fullyQualifiedTypeName name="runner.Runner"/>
+<fullyQualifiedTypeName name="object.Repository.ForGotPasswordRepo"/>
+<fullyQualifiedTypeName name="object.Repository.AuthenticationRepo"/>
+<fullyQualifiedTypeName name="com.github.mkolisnyk.cucumber.runner.ExtendedCucumberOptions"/>
+<fullyQualifiedTypeName name="com.github.mkolisnyk.cucumber.reporting.CucumberResultsOverview"/>
+<fullyQualifiedTypeName name="waits.Waits"/>
 </qualifiedTypeNameHistroy>

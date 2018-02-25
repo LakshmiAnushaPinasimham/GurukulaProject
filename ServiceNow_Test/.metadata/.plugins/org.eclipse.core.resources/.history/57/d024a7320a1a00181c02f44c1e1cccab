@@ -1,0 +1,284 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "line": 7,
+        "name": "Create Branch",
+        "description": "",
+        "id": "branches;create-branch",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 8743891446,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "I launch the Gurukula Application",
+            "match": {
+              "location": "RegistrationSteps.i_launch_the_Gurukula_Application()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 242624363,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "I click on Login",
+            "match": {
+              "location": "AuthenticationSteps.i_click_on_Login()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 457225794,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "I enter the login details \"admin\" and \"admin\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "admin",
+                  "offset": 27
+                },
+                {
+                  "val": "admin",
+                  "offset": 39
+                }
+              ],
+              "location": "AuthenticationSteps.i_enter_the_login_details_and(String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 635756628,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "I click on Entities to create Branch",
+            "match": {
+              "location": "BranchesSteps.i_click_on_Entities_to_create_Branch()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1157003252,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "I filled the branch details",
+            "match": {
+              "location": "BranchesSteps.i_filled_the_branch_details(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "Name",
+                  "",
+                  "Code"
+                ],
+                "line": 13
+              },
+              {
+                "cells": [
+                  "Maths",
+                  "",
+                  "MAT04"
+                ],
+                "line": 14
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 414244185,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "Branch should be created sucessfully",
+            "match": {
+              "location": "BranchesSteps.branch_should_be_created_sucessfully()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 6,
+            "name": "@CreateBranch"
+          }
+        ]
+      },
+      {
+        "line": 18,
+        "name": "View Branch Details",
+        "description": "",
+        "id": "branches;view-branch-details",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1161518653,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "I click on View",
+            "match": {
+              "location": "BranchesSteps.i_click_on_View()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 220108517,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "I should be able to see branch details",
+            "match": {
+              "location": "BranchesSteps.i_should_be_able_to_see_branch_details()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 17,
+            "name": "@ViewBranch"
+          }
+        ]
+      },
+      {
+        "line": 23,
+        "name": "Edit Branch Details",
+        "description": "",
+        "id": "branches;edit-branch-details",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 357712528,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "I click on Back",
+            "match": {
+              "location": "BranchesSteps.i_click_on_Back()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1381443286,
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "I click on Edit and enter my new branch details",
+            "match": {
+              "location": "BranchesSteps.i_click_on_Edit_and_enter_my_new_branch_details(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "Name",
+                  "",
+                  "Code"
+                ],
+                "line": 26
+              },
+              {
+                "cells": [
+                  "Social",
+                  "",
+                  "SOC04"
+                ],
+                "line": 27
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 2118081612,
+              "status": "passed"
+            },
+            "line": 28,
+            "name": "new branch details should be replaced with old",
+            "match": {
+              "location": "BranchesSteps.new_branch_details_should_be_replaced_with_old()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 22,
+            "name": "@EditBranch"
+          }
+        ]
+      },
+      {
+        "line": 31,
+        "name": "Delete Branch",
+        "description": "",
+        "id": "branches;delete-branch",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 708763356,
+              "status": "passed"
+            },
+            "line": 32,
+            "name": "I click on Delete",
+            "match": {
+              "location": "BranchesSteps.i_click_on_Delete()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1405292925,
+              "status": "passed"
+            },
+            "line": 33,
+            "name": "Branch should get deleted",
+            "match": {
+              "location": "BranchesSteps.branch_should_get_deleted()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 30,
+            "name": "@DeleteBranch"
+          }
+        ]
+      }
+    ],
+    "name": "Branches",
+    "description": "\r\nAs a Gurkula user, I should be able to create Branch",
+    "id": "branches",
+    "keyword": "Feature",
+    "uri": "src/features/Branches.Feature",
+    "tags": [
+      {
+        "line": 1,
+        "name": "@RegressionTest"
+      }
+    ]
+  }
+]

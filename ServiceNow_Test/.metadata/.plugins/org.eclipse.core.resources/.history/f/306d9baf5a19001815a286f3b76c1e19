@@ -1,0 +1,65 @@
+package steps;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
+
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import object.Repository.AuthenticationRepo;
+import object.Repository.PasswordRepo;
+import runner.Runner;
+import waits.Waits;
+
+public class CreatePasswordSteps {
+
+	WebDriver driver = Runner.driver;
+	String newPassword = "";
+	public AuthenticationSteps _authenticationSteps = new AuthenticationSteps();
+	public SoftAssert softAssert = new SoftAssert();
+
+	@When("^I click on Entities to Password to change my password$")
+	public void i_click_on_Entities_to_Password_to_change_my_password() {
+		driver.findElement(AuthenticationRepo.account).click();
+		driver.findElement(PasswordRepo.password).click();
+	}
+
+	@When("^I enter new paddword details \"([^\"]*)\" and \"([^\"]*)\"$")
+	public void i_enter_new_paddword_details_and(String newPwd, String confirmPwd) {
+		newPassword = newPwd;
+		driver.findElement(PasswordRepo.newPassword_TextFeild).sendKeys(newPwd);
+		driver.findElement(PasswordRepo.confirmPassword_TextFeild).sendKeys(confirmPwd);
+		driver.findElement(PasswordRepo.save_Button).click();
+	}
+
+	@Then("^new password should be created$")
+	public void new_password_should_be_created() {
+		String errorMsg = driver.findElement(PasswordRepo.errorMessage).getText();
+		if (errorMsg.contains("An error has occurred!")) {
+			softAssert.fail();
+		}
+
+	}
+
+	@When("^I login with new Passowrd$")
+	public void i_login_with_new_Passowrd() throws InterruptedException {
+		// Logout of Application
+		UserLogoutSteps.i_click_on_Logout();
+		UserLogoutSteps.logout_should_be_done_sucessfully();
+		_authenticationSteps.i_click_on_Login();
+		Waits.implicitWait();
+		driver.findElement(AuthenticationRepo.login_TextField).sendKeys("admin");
+		driver.findElement(AuthenticationRepo.passwordTextField).sendKeys(newPassword);
+		driver.findElement(AuthenticationRepo.authenticate_Button).click();
+	}
+
+	@Then("^I should be able to login successfully$")
+	public void i_should_be_able_to_login_successfully() {
+		Waits.implicitWait();
+		String success = driver.findElement(AuthenticationRepo.sccuess_Status).getText();
+		if (!success.contains("You are logged in as user")) {
+			Assert.fail();
+		}
+		softAssert.assertAll();
+	}
+}

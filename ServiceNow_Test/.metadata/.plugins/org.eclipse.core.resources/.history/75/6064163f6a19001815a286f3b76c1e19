@@ -1,0 +1,38 @@
+package steps;
+
+import org.openqa.selenium.WebDriver;
+
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import object.Repository.ForGotPasswordRepo;
+import runner.Runner;
+
+public class ForgotPasswordSteps 
+{
+
+	WebDriver driver=Runner.driver;
+	
+@When("^I click on forgot password$")
+public void i_click_on_forgot_password()  {
+ 
+	driver.findElement(ForGotPasswordRepo.forgotPassword_Link).click();
+}
+
+@When("^I entered my registerd email$")
+public void i_entered_my_registerd_email()  {
+	
+	driver.findElement(ForGotPasswordRepo.email_TextField).sendKeys("planusha.mca@gmail.com");
+
+}
+
+@When("^I click on Reset Password$")
+public void i_click_on_Reset_Password()  {
+ 
+	driver.findElement(ForGotPasswordRepo.resetPassword_Button).click();
+}
+
+@Then("^I should get the mail to my registered email to reset my password$")
+public void i_should_get_the_mail_to_my_registered_email_to_reset_my_password()  {
+
+}
+}

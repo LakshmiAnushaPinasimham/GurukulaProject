@@ -20,12 +20,12 @@ public class Waits extends Runner {
 	}
 
 	public static void explicitWaitElementToBeSelected(WebElement element) {
-		WebDriverWait wait = new WebDriverWait(driver, 10);
+		WebDriverWait wait = new WebDriverWait(driver, 20);
 		wait.until(ExpectedConditions.elementToBeSelected(element));
 	}
 
 	public static void explicitWaitElementToBeClickable(WebElement element) {
-		WebDriverWait wait = new WebDriverWait(driver, 10);
+		WebDriverWait wait = new WebDriverWait(driver, 20);
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
 

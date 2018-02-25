@@ -12,3 +12,6 @@
 1519064689468	Rename resource 'CreateBranch.feature'
 1519064702820	Rename type 'CreateBranchSteps'
 1519317513374	Rename type 'EntitiesRepo'
+1519473792006	Rename type 'CreatePasswordSteps'
+1519476728556	Delete element
+1519480605746	Rename type 'ForGotPasswordRepo'

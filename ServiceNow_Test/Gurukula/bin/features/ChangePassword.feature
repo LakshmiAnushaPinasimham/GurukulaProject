@@ -11,12 +11,14 @@ Feature: Change Password
     And I enter the login details "admin" and "admin"
     And I click on Entities to Password to change my password   
 
+@ChangePassword
   Scenario: Change Password
-    And I enter new paddword details "adminis" and "adminis"
+    And I enter new password details "adminis" and "adminis"
     Then new password should be created
     When I login with new Passowrd
     Then I should be able to login successfully
 
+@WrongPassword
   Scenario: Wrong Password
-    And I enter new paddword details "adminis" and "admini"
+    And I enter new password details "adminis" and "admini"
     Then new password should not be created

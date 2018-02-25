@@ -24,8 +24,11 @@ public class BranchesSteps {
 	public String code = "";
 
 	@When("^I click on Entities to create Branch$")
-	public void i_click_on_Entities_to_create_Branch() {
-		driver.findElement(EntitiesBranchRepo.entities).click();
+	public void i_click_on_Entities_to_create_Branch() throws InterruptedException {
+		Thread.sleep(1000);
+		WebElement element=driver.findElement(EntitiesBranchRepo.entities);
+		Waits.explicitWaitElementToBeClickable(element);
+		element.click();
 
 		// To select Branch from Entities
 		Actions action = new Actions(driver);
@@ -66,8 +69,8 @@ public class BranchesSteps {
 	// Steps of View Branch Details Scenario
 
 	@When("^I click on View$")
-	public void i_click_on_View() {
-
+	public void i_click_on_View() throws InterruptedException {
+        Thread.sleep(1000);
 		WebElement element = driver.findElement(EntitiesBranchRepo.view_Button);
 		Waits.explicitWaitElementToBeClickable(element);
 		element.click();
@@ -134,8 +137,7 @@ public class BranchesSteps {
 			Thread.sleep(2000);
 			WebElement name_value = driver
 					.findElement(By.xpath("//table[@class='table table-striped']/tbody/tr[" + i + "]/td[2]"));
-
-			System.out.println("/////////" + name_value.getText());
+            Waits.implicitWait();
 			Assert.assertEquals(name, name_value.getText());
 			WebElement code_value = driver
 					.findElement(By.xpath("//table[@class='table table-striped']/tbody/tr[" + i + "]/td[3]"));
@@ -153,9 +155,10 @@ public class BranchesSteps {
 	}
 
 	@Then("^Branch should get deleted$")
-	public void branch_should_get_deleted() {
+	public void branch_should_get_deleted() throws InterruptedException {
 		WebElement element = driver.findElement(EntitiesBranchRepo.delete_Form);
 		element.findElement(EntitiesBranchRepo.delete_FormButton).click();
+		UserLogoutSteps.i_click_on_Logout();
 	}
 
 }
