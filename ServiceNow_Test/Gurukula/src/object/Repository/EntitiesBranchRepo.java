@@ -3,6 +3,8 @@ package object.Repository;
 import org.openqa.selenium.By;
 
 public class EntitiesBranchRepo {
+
+	// Branch Elements
 	public static By entities = By.xpath(".//*[contains(@class,'glyphicon glyphicon-th-list')]");
 	public static By create_Branch = By.xpath(".//*[contains(@class,'glyphicon glyphicon-flash')]");
 	public static By name_TextField = By.name("name");

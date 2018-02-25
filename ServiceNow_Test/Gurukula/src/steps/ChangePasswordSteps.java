@@ -31,16 +31,7 @@ public class ChangePasswordSteps {
 		driver.findElement(PasswordRepo.confirmPassword_TextFeild).sendKeys(confirmPwd);
 		driver.findElement(PasswordRepo.save_Button).click();
 	}
-
-	@Then("^new password should be created$")
-	public void new_password_should_be_created() {
-		String errorMsg = driver.findElement(PasswordRepo.errorMessage).getText();
-		if (errorMsg.contains("An error has occurred!")) {
-			softAssert.fail();
-		}
-
-	}
-
+	
 	@When("^I login with new Passowrd$")
 	public void i_login_with_new_Passowrd() throws InterruptedException {
 		// Logout of Application
@@ -53,6 +44,16 @@ public class ChangePasswordSteps {
 		driver.findElement(AuthenticationRepo.authenticate_Button).click();
 	}
 
+
+	@Then("^new password should be created$")
+	public void new_password_should_be_created() {
+		String errorMsg = driver.findElement(PasswordRepo.errorMessage).getText();
+		if (errorMsg.contains("An error has occurred!")) {
+			softAssert.fail();
+		}
+
+	}
+	
 	@Then("^I should be able to login successfully$")
 	public void i_should_be_able_to_login_successfully() throws InterruptedException {
 		Waits.implicitWait();

@@ -106,14 +106,14 @@ formatter.match({
   "location": "RegistrationSteps.i_launch_the_Gurukula_Application()"
 });
 formatter.result({
-  "duration": 5327072042,
+  "duration": 6273662122,
   "status": "passed"
 });
 formatter.match({
   "location": "AuthenticationSteps.i_click_on_Login()"
 });
 formatter.result({
-  "duration": 122114211,
+  "duration": 134103818,
   "status": "passed"
 });
 formatter.match({
@@ -130,42 +130,42 @@ formatter.match({
   "location": "AuthenticationSteps.i_enter_the_login_details_and(String,String)"
 });
 formatter.result({
-  "duration": 377114335,
+  "duration": 364201892,
   "status": "passed"
 });
 formatter.match({
   "location": "BranchesSteps.i_click_on_Entities_to_create_Branch()"
 });
 formatter.result({
-  "duration": 1265404915,
+  "duration": 1223838778,
   "status": "passed"
 });
 formatter.match({
   "location": "BranchesSteps.i_filled_the_branch_details(DataTable)"
 });
 formatter.result({
-  "duration": 621116538,
+  "duration": 766045084,
   "status": "passed"
 });
 formatter.match({
   "location": "StaffSteps.i_click_on_Entities_to_create_Staff()"
 });
 formatter.result({
-  "duration": 1147656431,
+  "duration": 1229203033,
   "status": "passed"
 });
 formatter.match({
   "location": "StaffSteps.i_filled_the_Staff_details(DataTable)"
 });
 formatter.result({
-  "duration": 745722152,
+  "duration": 1608100607,
   "status": "passed"
 });
 formatter.match({
   "location": "StaffSteps.staff_details_should_be_created_sucessfully()"
 });
 formatter.result({
-  "duration": 257916596,
+  "duration": 320618172,
   "status": "passed"
 });
 formatter.scenario({
@@ -196,14 +196,14 @@ formatter.match({
   "location": "BranchesSteps.i_click_on_View()"
 });
 formatter.result({
-  "duration": 1135982419,
+  "duration": 1139478337,
   "status": "passed"
 });
 formatter.match({
   "location": "StaffSteps.i_should_be_able_to_see_staff_details()"
 });
 formatter.result({
-  "duration": 169939643,
+  "duration": 176809602,
   "status": "passed"
 });
 formatter.scenario({
@@ -239,7 +239,7 @@ formatter.match({
   "location": "BranchesSteps.i_click_on_Back()"
 });
 formatter.result({
-  "duration": 291886222,
+  "duration": 267972436,
   "status": "passed"
 });
 formatter.match({
@@ -252,14 +252,14 @@ formatter.match({
   "location": "StaffSteps.i_click_on_Edit_and_enter_my_new_staff_details(String)"
 });
 formatter.result({
-  "duration": 915356891,
+  "duration": 895940117,
   "status": "passed"
 });
 formatter.match({
   "location": "StaffSteps.new_staff_details_should_be_replaced_with_old()"
 });
 formatter.result({
-  "duration": 2035964544,
+  "duration": 2048089284,
   "status": "passed"
 });
 formatter.scenario({
@@ -290,14 +290,14 @@ formatter.match({
   "location": "BranchesSteps.i_click_on_Delete()"
 });
 formatter.result({
-  "duration": 663643144,
+  "duration": 670365996,
   "status": "passed"
 });
 formatter.match({
   "location": "StaffSteps.staff_details_should_get_deleted()"
 });
 formatter.result({
-  "duration": 3263362529,
+  "duration": 3361411145,
   "status": "passed"
 });
 });

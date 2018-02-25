@@ -10,12 +10,11 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 //@RunWith(Cucumber.class)
 
-  @CucumberOptions(
-		monochrome = true, features = "src/features/Staff.Feature", glue = "steps",
-		format = { "pretty", "html:target/cucumber-reports/" }
+@CucumberOptions(monochrome = true, features = "src/features/Staff.Feature", glue = "steps", format = { "pretty",
+		"html:target/cucumber-reports/" }
 
 // ,tags={"@SmokeTest"} //To group features as a group
-//,tags={"@WrongPassword"} //To run specific scenario in feature
+// ,tags={"@WrongPassword"} //To run specific scenario in feature
 
 )
 
@@ -28,10 +27,10 @@ public class Runner extends AbstractTestNGCucumberTests {
 		driver = new ChromeDriver();
 	}
 
-/*	@AfterClass
+	@AfterClass
 	public static void afterClass() throws Exception {
-	
+
 		driver.quit();
-	}*/
+	}
 
 }

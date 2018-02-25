@@ -2,23 +2,23 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="22175" started-at="2018-02-25T10:23:21Z" finished-at="2018-02-25T10:23:43Z">
+  <suite name="Default suite" duration-ms="24783" started-at="2018-02-25T13:39:18Z" finished-at="2018-02-25T13:39:43Z">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:runner.Runner@6767c1fc]" name="feature" class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test name="Default test" duration-ms="22175" started-at="2018-02-25T10:23:21Z" finished-at="2018-02-25T10:23:43Z">
+    <test name="Default test" duration-ms="24783" started-at="2018-02-25T13:39:18Z" finished-at="2018-02-25T13:39:43Z">
       <class name="runner.Runner">
-        <test-method status="PASS" signature="setUpClass()[pri:0, instance:runner.Runner@6767c1fc]" name="setUpClass" is-config="true" duration-ms="388" started-at="2018-02-25T15:53:21Z" finished-at="2018-02-25T15:53:22Z">
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:runner.Runner@6767c1fc]" name="setUpClass" is-config="true" duration-ms="397" started-at="2018-02-25T19:09:18Z" finished-at="2018-02-25T19:09:19Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method status="PASS" signature="useChromeBrowser()[pri:0, instance:runner.Runner@6767c1fc]" name="useChromeBrowser" is-config="true" duration-ms="3145" started-at="2018-02-25T15:53:22Z" finished-at="2018-02-25T15:53:25Z">
+        <test-method status="PASS" signature="useChromeBrowser()[pri:0, instance:runner.Runner@6767c1fc]" name="useChromeBrowser" is-config="true" duration-ms="3485" started-at="2018-02-25T19:09:19Z" finished-at="2018-02-25T19:09:22Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- useChromeBrowser -->
-        <test-method status="PASS" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:runner.Runner@6767c1fc]" name="feature" duration-ms="18428" started-at="2018-02-25T15:53:25Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2018-02-25T15:53:43Z">
+        <test-method status="PASS" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:runner.Runner@6767c1fc]" name="feature" duration-ms="20625" started-at="2018-02-25T19:09:22Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2018-02-25T19:09:43Z">
           <params>
             <param index="0">
               <value>
@@ -29,7 +29,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- feature -->
-        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:runner.Runner@6767c1fc]" name="tearDownClass" is-config="true" duration-ms="87" started-at="2018-02-25T15:53:43Z" finished-at="2018-02-25T15:53:43Z">
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:runner.Runner@6767c1fc]" name="tearDownClass" is-config="true" duration-ms="99" started-at="2018-02-25T19:09:43Z" finished-at="2018-02-25T19:09:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

@@ -72,8 +72,6 @@ public class RegistrationSteps {
 
 		}
 
-		// To click on Register Button
-
 	}
 
 	@Then("^registration should be done successfully$")

@@ -3,7 +3,8 @@ package object.Repository;
 import org.openqa.selenium.By;
 
 public class RegistrationRepo {
-	// Register Form Details
+	
+	//Register Form Elements
 	public static By register_Link = By.linkText("Register a new account");
 	public static By login_TextField = By.name("login");
 	public static By email_TextField = By.name("email");

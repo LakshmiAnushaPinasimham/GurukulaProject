@@ -3,7 +3,8 @@ package object.Repository;
 import org.openqa.selenium.By;
 
 public class AuthenticationRepo {
-	// Authentication details
+	
+	// Authentication Elements
 	public static By login_Link = By.linkText("login");
 	public static By login_TextField = By.id("username");
 	public static By passwordTextField = By.id("password");

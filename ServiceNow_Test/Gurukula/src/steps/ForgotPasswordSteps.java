@@ -35,6 +35,6 @@ public void i_click_on_Reset_Password()  {
 
 @Then("^I should get sucessfull message$")
 public void i_should_get_sucessfull_message() {
-
+    // On hold due to the forgot password email recovery not known 
 }
 }

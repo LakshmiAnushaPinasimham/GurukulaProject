@@ -3,6 +3,8 @@ package object.Repository;
 import org.openqa.selenium.By;
 
 public class EntitiesStaffRepo {
+	
+	//Staff Page Elements
 	public static By staff = By.xpath("//a[contains(@href, '#/staff')]");
 	public static By create_Staff = By.xpath(".//*[contains(@class,'btn btn-primary')]");
 	public static By name_TextField = By.name("name");

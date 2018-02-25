@@ -36,21 +36,32 @@ public class StaffSteps {
 		// To select staff from Entities
 		Actions action = new Actions(driver);
 		action.sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.ENTER).build().perform();
-
 	}
 
 	@When("^I filled the Staff details$")
-	public void i_filled_the_Staff_details(DataTable staffDetails) {
+	public void i_filled_the_Staff_details(DataTable staffDetails) throws InterruptedException {
 		for (Map<String, String> data : staffDetails.asMaps(String.class, String.class)) {
+			Thread.sleep(1000);
 			driver.findElement(EntitiesStaffRepo.create_Staff).click();
 			name = data.get("Name");
 			branch = data.get("Branch");
 			driver.findElement(EntitiesStaffRepo.name_TextField).sendKeys(data.get("Name"));
-			// driver.findElement(EntitiesStaffRepo.branch_DropDown).sendKeys(data.get("Branch"));
 			Dropdown.SelectByVisibleText(driver.findElement(EntitiesStaffRepo.branch_DropDown), data.get("Branch"));
 			driver.findElement(EntitiesStaffRepo.save_Button).click();
 			Waits.implicitWait();
 		}
+	}
+	
+	@When("^I click on Edit and enter my new staff details \"([^\"]*)\"$")
+	public void i_click_on_Edit_and_enter_my_new_staff_details(String name) {
+		WebElement element = driver.findElement(EntitiesStaffRepo.name_TextField);
+		Waits.explicitWaitElementToBeClickable(element);
+		element.click();
+		Actions action = new Actions(driver);
+		action.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).perform();
+		element.sendKeys(name);
+		driver.findElement(EntitiesStaffRepo.save_Button).click();
+		Waits.implicitWait();
 	}
 
 	@Then("^Staff details should be created sucessfully$")
@@ -86,22 +97,8 @@ public class StaffSteps {
 		Assert.assertTrue(focus);
 	}
 
-	@When("^I click on Edit and enter my new staff details \"([^\"]*)\"$")
-	public void i_click_on_Edit_and_enter_my_new_staff_details(String name) {
-		WebElement element = driver.findElement(EntitiesStaffRepo.name_TextField);
-		Waits.explicitWaitElementToBeClickable(element);
-		element.click();
-		Actions action = new Actions(driver);
-		action.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).perform();
-		element.sendKeys(name);
-		driver.findElement(EntitiesStaffRepo.save_Button).click();
-		Waits.implicitWait();
-	}
-
 	@Then("^new staff details should be replaced with old$")
 	public void new_staff_details_should_be_replaced_with_old() throws InterruptedException {
-		// WebElement element=driver.findElement(EntitiesRepo.create_Branch);
-		// Waits.explicitWaitElementToBeClickable(element);
 		Thread.sleep(2000);
 		WebElement name_value = driver.findElement(By.xpath("//table[@class='table table-striped']/tbody/tr[1]/td[2]"));
 		Assert.assertEquals("Ramesh", name_value.getText());

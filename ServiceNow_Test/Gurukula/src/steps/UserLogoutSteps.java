@@ -15,15 +15,7 @@ public class UserLogoutSteps {
 	public static AuthenticationSteps authenticationSteps = new AuthenticationSteps();
 	public static WebElement element;
 
-	@Then("^I should be able to login sucessfully$")
-	public void i_should_be_able_to_login_sucessfully() {
-		Waits.implicitWait();
-		String success = driver.findElement(AuthenticationRepo.sccuess_Status).getText();
-		if (!success.contains("You are logged in as user")) {
-			Assert.fail();
-		}
-	}
-
+	
 	@When("^I click on Logout$")
 	public static void i_click_on_Logout() throws InterruptedException {
 	    Thread.sleep(1000);
@@ -33,6 +25,15 @@ public class UserLogoutSteps {
 		Waits.implicitWait();
 		driver.findElement(AuthenticationRepo.logout).click();
 
+	}
+	
+	@Then("^I should be able to login sucessfully$")
+	public void i_should_be_able_to_login_sucessfully() {
+		Waits.implicitWait();
+		String success = driver.findElement(AuthenticationRepo.sccuess_Status).getText();
+		if (!success.contains("You are logged in as user")) {
+			Assert.fail();
+		}
 	}
 
 	@Then("^logout should be done sucessfully$")

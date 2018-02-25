@@ -3,6 +3,8 @@ package object.Repository;
 import org.openqa.selenium.By;
 
 public class ForgotPasswordRepo {
+	
+	//Forgot password webpage elements
 	public static By forgotPassword_Link=By.partialLinkText("Did you forget");
 	public static By email_TextField=By.name("email");
 	public static By resetPassword_Button=By.xpath(".//*[contains(@class,'btn btn-primary ng-scope')]");
